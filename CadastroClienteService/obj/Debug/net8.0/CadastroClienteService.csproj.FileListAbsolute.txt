@@ -1,0 +1,7 @@
+/Users/luanacarolina/Documents/Git/CadastroClienteService/obj/Debug/net8.0/CadastroClienteService.csproj.AssemblyReference.cache
+/Users/luanacarolina/Documents/Git/CadastroClienteService/obj/Debug/net8.0/CadastroClienteService.GeneratedMSBuildEditorConfig.editorconfig
+/Users/luanacarolina/Documents/Git/CadastroClienteService/obj/Debug/net8.0/CadastroClienteService.AssemblyInfoInputs.cache
+/Users/luanacarolina/Documents/Git/CadastroClienteService/obj/Debug/net8.0/CadastroClienteService.AssemblyInfo.cs
+/Users/luanacarolina/Documents/Git/CadastroClienteService/obj/Debug/net8.0/CadastroClienteService.csproj.CoreCompileInputs.cache
+/Users/luanacarolina/Documents/Git/CadastroClienteService/obj/Debug/net8.0/CadastroClienteService.MvcApplicationPartsAssemblyInfo.cs
+/Users/luanacarolina/Documents/Git/CadastroClienteService/obj/Debug/net8.0/CadastroClienteService.MvcApplicationPartsAssemblyInfo.cache
