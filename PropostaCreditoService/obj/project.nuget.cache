@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ffj+9tZAVnRvp2cWQnPf6R97ruZefVPZjj8BqI+2vKNq0rFdYGWVoU29ZsaJzfIBHAD9SQ0StrY07Vw8j49dAw==",
+  "success": true,
+  "projectFilePath": "/Users/luanacarolina/Documents/Git/PropostaCartaoMicroservice/PropostaCreditoService/PropostaCreditoService.csproj",
+  "expectedPackageFiles": [
+    "/Users/luanacarolina/.nuget/packages/microsoft.aspnetcore.openapi/8.0.7/microsoft.aspnetcore.openapi.8.0.7.nupkg.sha512",
+    "/Users/luanacarolina/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/Users/luanacarolina/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/Users/luanacarolina/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "/Users/luanacarolina/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "/Users/luanacarolina/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "/Users/luanacarolina/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.4.0/swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
