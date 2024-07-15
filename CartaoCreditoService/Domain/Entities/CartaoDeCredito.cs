@@ -9,5 +9,6 @@ namespace CartaoCreditoService.Domain.Entities
     {
         public int ClienteId { get; set; }
         public decimal Limite { get; set; }
+        public string Numero { get; set; }
     }
 }

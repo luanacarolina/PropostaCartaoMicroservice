@@ -29,5 +29,16 @@ namespace CadastroClienteService.Presentation.Controllers
             _rabbitMQClientService.SendMessage(clienteDto);
             return Ok();
         }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var clienteDto = _clienteAppService.GetCliente(id);
+            if (clienteDto == null)
+            {
+                return NotFound();
+            }
+            return Ok(clienteDto);
+        }
     }
 }

@@ -45,16 +45,19 @@ namespace CartaoCreditoService.Infrastructure.Messaging
 
         private Task ProcessarCartao(PropostaDeCredito proposta)
         {
-            var cartao = new CartaoDeCredito
+            for (int i = 0; i < 2; i++) // Exemplo: emissão de 2 cartões
             {
-                ClienteId = proposta.ClienteId,
-                Limite = proposta.Limite
-            };
+                var cartao = new CartaoDeCredito
+                {
+                    ClienteId = proposta.ClienteId,
+                    Limite = proposta.Limite,
+                    Numero = $"4000 1234 5678 {i:0000}" // Exemplo de geração de número de cartão
+                };
 
-            _cartaoService.AddCartao(cartao);
+                _cartaoService.AddCartao(cartao);
 
-            Console.WriteLine($"Cartão de crédito emitido para o cliente {proposta.ClienteId} com limite {proposta.Limite}");
-
+                Console.WriteLine($"Cartão de crédito emitido para o cliente {proposta.ClienteId} com limite {proposta.Limite}");
+            }
             // Enviar evento de sucesso ou falha para o serviço de Cadastro de Clientes
             EnviarEventoDeStatus($"Cartão emitido para o cliente {proposta.ClienteId}");
 
