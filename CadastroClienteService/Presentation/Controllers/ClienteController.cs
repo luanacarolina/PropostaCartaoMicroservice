@@ -1,3 +1,7 @@
+using CadastroClienteService.Application.Dtos;
+using CadastroClienteService.Domain.Services;
+using CadastroClienteService.Infrastructure.Messaging;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;

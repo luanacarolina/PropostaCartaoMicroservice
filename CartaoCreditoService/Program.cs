@@ -1,3 +1,8 @@
+using CartaoCreditoService.Domain.Interfaces;
+using CartaoCreditoService.Domain.Services;
+using CartaoCreditoService.Infrastructure.Data;
+using CartaoCreditoService.Infrastructure.Messaging;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CadastroClienteService.Domain.Entities;
+using CadastroClienteService.Domain.Interfaces;
 
 namespace CadastroClienteService.Infrastructure.Data
 {

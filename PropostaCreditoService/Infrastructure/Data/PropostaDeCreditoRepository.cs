@@ -1,3 +1,5 @@
+using PropostaCreditoService.Domain.Entities;
+using PropostaCreditoService.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

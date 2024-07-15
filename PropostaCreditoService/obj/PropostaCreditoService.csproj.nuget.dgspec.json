@@ -1,26 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/luanacarolina/Documents/Git/PropostaCartaoMicroservice/PropostaCreditoService/PropostaCreditoService.csproj": {}
+    "C:\\Users\\JoseA\\Desktop\\Git\\PropostaCartaoMicroservice\\PropostaCreditoService\\PropostaCreditoService.csproj": {}
   },
   "projects": {
-    "/Users/luanacarolina/Documents/Git/PropostaCartaoMicroservice/PropostaCreditoService/PropostaCreditoService.csproj": {
+    "C:\\Users\\JoseA\\Desktop\\Git\\PropostaCartaoMicroservice\\PropostaCreditoService\\PropostaCreditoService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/luanacarolina/Documents/Git/PropostaCartaoMicroservice/PropostaCreditoService/PropostaCreditoService.csproj",
+        "projectUniqueName": "C:\\Users\\JoseA\\Desktop\\Git\\PropostaCartaoMicroservice\\PropostaCreditoService\\PropostaCreditoService.csproj",
         "projectName": "PropostaCreditoService",
-        "projectPath": "/Users/luanacarolina/Documents/Git/PropostaCartaoMicroservice/PropostaCreditoService/PropostaCreditoService.csproj",
-        "packagesPath": "/Users/luanacarolina/.nuget/packages/",
-        "outputPath": "/Users/luanacarolina/Documents/Git/PropostaCartaoMicroservice/PropostaCreditoService/obj/",
+        "projectPath": "C:\\Users\\JoseA\\Desktop\\Git\\PropostaCartaoMicroservice\\PropostaCreditoService\\PropostaCreditoService.csproj",
+        "packagesPath": "C:\\Users\\JoseA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JoseA\\Desktop\\Git\\PropostaCartaoMicroservice\\PropostaCreditoService\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/luanacarolina/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\JoseA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -33,6 +38,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -42,6 +52,14 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.7, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[8.4.1, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.8.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -67,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.107/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

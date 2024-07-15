@@ -1,3 +1,5 @@
+using CartaoCreditoService.Domain.Entities;
+using CartaoCreditoService.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

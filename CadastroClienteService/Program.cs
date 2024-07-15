@@ -1,3 +1,8 @@
+using CadastroClienteService.Domain.Interfaces;
+using CadastroClienteService.Domain.Services;
+using CadastroClienteService.Infrastructure.Data;
+using CadastroClienteService.Infrastructure.Messaging;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,11 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddSingleton<ClienteAppService>();
 builder.Services.AddSingleton<ClienteService>();
 builder.Services.AddSingleton<IClienteRepository, ClienteRepository>();
 builder.Services.AddSingleton<RabbitMQClientService>();
+builder.Services.AddHostedService<RabbitMQStatusConsumerService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,6 +25,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
 
 
 app.Run();

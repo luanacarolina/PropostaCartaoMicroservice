@@ -1,9 +1,9 @@
+using CadastroClienteService.Application.Dtos;
+using CadastroClienteService.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using cadastroClienteService.Domain.Entities;
-
 namespace CadastroClienteService.Application.Helpers
 {
     public static class ClientHelper

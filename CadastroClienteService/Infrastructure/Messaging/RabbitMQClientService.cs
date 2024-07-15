@@ -1,17 +1,24 @@
+using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace CadastroClienteService.Infrastructure.Messaging
 {
-    public class RabbitMQClientService(ConnectionFactory factory)
+    public class RabbitMQClientService : IDisposable
     {
-        private readonly IConnection _connection = factory.CreateConnection();
-        private readonly IModel _channel = _connection.CreateModel();
+        private readonly IConnection _connection;
+        private readonly IModel _channel;
 
-        public RabbitMQClientService() : this(new ConnectionFactory() { HostName = "localhost" })
+        
+        public RabbitMQClientService()
         {
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+            _connection = factory.CreateConnection();
+            _channel = _connection.CreateModel();
             _channel.ExchangeDeclare(exchange: "clienteExchange", type: ExchangeType.Direct);
             _channel.QueueDeclare(queue: "clienteQueue", durable: true, exclusive: false, autoDelete: false, arguments: null);
             _channel.QueueBind(queue: "clienteQueue", exchange: "clienteExchange", routingKey: "clienteRoutingKey");

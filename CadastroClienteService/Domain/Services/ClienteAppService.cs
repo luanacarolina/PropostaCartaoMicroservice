@@ -1,3 +1,5 @@
+using CadastroClienteService.Application.Dtos;
+using CadastroClienteService.Application.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +13,13 @@ namespace CadastroClienteService.Domain.Services
 
         public void AddCliente(ClienteDto clienteDto)
         {
-            var cliente = clienteDto.ToEntity();
+            var cliente = ClientHelper.ToEntity(clienteDto);
             _clienteService.AddCliente(cliente);
         }
 
         public ClienteDto GetCliente(int id)
         {
-            var cliente = _clienteService.GetClienteById(id);
+            var cliente = _clienteService.GetClientById(id);
             return cliente.ToDto();
         }
 

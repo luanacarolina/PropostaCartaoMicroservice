@@ -1,6 +1,12 @@
+using PropostaCreditoService.Domain.Entities;
+using PropostaCreditoService.Domain.Services;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace PropostaCreditoService.Infrastructure.Messaging
@@ -39,36 +45,43 @@ namespace PropostaCreditoService.Infrastructure.Messaging
             return Task.CompletedTask;
         }
 
-        private Task ProcessarProposta(Cliente cliente)
+        private async Task ProcessarProposta(Cliente cliente)
         {
             var proposta = new PropostaDeCredito
             {
                 ClienteId = cliente.Id,
-                Limite = 1000.00m // Exemplo de lógica de negócio
+                Limite = 1000.00m
             };
 
-            _propostaService.AddProposta(proposta);
+            try
+            {
+                await _propostaService.AddPropostaAsync(proposta);
+                EnviarMensagemProposta(proposta);
+                EnviarEventoDeStatus(cliente.Id, "Sucesso");
+            }
+            catch (Exception ex)
+            {
+                // Log de erro
+                Console.WriteLine($"Erro ao processar proposta: {ex.Message}");
+                EnviarEventoDeStatus(cliente.Id, "Falha");
+            }
+        }
 
-            Console.WriteLine($"Proposta de crédito gerada para o cliente {cliente.Nome} com limite {proposta.Limite}");
+        private void EnviarEventoDeStatus(int clienteId, string status)
+        {
+            var statusMessage = new { ClienteId = clienteId, Status = status };
+            var statusJson = JsonSerializer.Serialize(statusMessage);
+            var body = Encoding.UTF8.GetBytes(statusJson);
 
-            // Envia a proposta para o próximo serviço
-            EnviarMensagemProposta(proposta);
-
-            return Task.CompletedTask;
+            _channel.BasicPublish(exchange: "statusExchange", routingKey: "statusRoutingKey", basicProperties: null, body: body);
         }
 
         private void EnviarMensagemProposta(PropostaDeCredito proposta)
         {
-            var factory = new ConnectionFactory() { HostName = "localhost" };
-            using var connection = factory.CreateConnection();
-            using var channel = connection.CreateModel();
-            channel.ExchangeDeclare(exchange: "propostaExchange", type: ExchangeType.Direct);
-            channel.QueueDeclare(queue: "propostaQueue", durable: true, exclusive: false, autoDelete: false, arguments: null);
-            channel.QueueBind(queue: "propostaQueue", exchange: "propostaExchange", routingKey: "propostaRoutingKey");
-
             var propostaJson = JsonSerializer.Serialize(proposta);
             var body = Encoding.UTF8.GetBytes(propostaJson);
-            channel.BasicPublish(exchange: "propostaExchange", routingKey: "propostaRoutingKey", basicProperties: null, body: body);
+
+            _channel.BasicPublish(exchange: "propostaExchange", routingKey: "propostaRoutingKey", basicProperties: null, body: body);
         }
 
         public override void Dispose()
